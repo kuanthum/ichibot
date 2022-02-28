@@ -1,11 +1,5 @@
 from ichi_data import *
 
-
-
-#----ICHI TEST----
-
-#TK CROSS
-
 def tk_cross():
     if tenkan_sen > kijun_sen:
         return 1 

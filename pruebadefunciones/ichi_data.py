@@ -1,5 +1,6 @@
 import get_data as gd
 
+#get specific data form sym data
 candle_c = gd.get_sym_data['close']
 candle_h = gd.get_sym_data['high']
 candle_l = gd.get_sym_data['low']
