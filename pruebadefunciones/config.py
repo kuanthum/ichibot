@@ -2,11 +2,6 @@
 from datetime import datetime
 import calendar
 
-#select tiype of asset
-usd_perp = range[6:30]
-inv_perp = ()
-inv_fut = ()
-
 #unixtime get for market data
 def f_time_func():
     now = datetime.utcnow()

@@ -15,7 +15,7 @@ def sym_data_iter_func():
     return sym_data_list 
 
 sym_entry_list = sym_data_iter_func()
-sym_entry_list = sym_entry_list[cfg.usd_perp]
+sym_entry_list = sym_entry_list[6:-4]
 
 def asset_rank():
     sim_rank = []
