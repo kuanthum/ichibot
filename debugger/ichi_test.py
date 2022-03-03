@@ -1,3 +1,4 @@
+from ichi_data import ichi_var, var
 
 def ichi_test_func(
     symbol= (),
@@ -11,13 +12,16 @@ def ichi_test_func(
     chikou= ()
 ):
 
+    ichi_test = []
+
     def tk_cross():
         if tenkan_sen > kijun_sen:
             return 1 
         else:
             return -1    
 
-    #print("TK cross is: ",tk_cross())
+    print("TK cross is: ",tk_cross())
+    ichi_test.append(print("TK cross is: ",tk_cross()))
 
     #KUMO AHEAD
     def kumo_cloud():
@@ -26,7 +30,8 @@ def ichi_test_func(
         else:
             return -1
 
-    #print("Kumo ahead is: ",kumo_cloud())
+    print("Kumo ahead is: ",kumo_cloud()),
+    ichi_test.append(print("Kumo ahead is: ",kumo_cloud()))
 
     #KUMO VS PRICE
     def kumo_cloud_now():
@@ -44,7 +49,8 @@ def ichi_test_func(
         else:
             return 0
 
-    #print("Price vs Kumo is: ",kumo_cloud_now())
+    print("Price vs Kumo is: ",kumo_cloud_now())
+    ichi_test.append(print("Price vs Kumo is: ",kumo_cloud_now()))
 
     #CHIKOU
     def chikou_test():
@@ -54,17 +60,20 @@ def ichi_test_func(
             return -1
 
 
-    #print("Chikou is: ",chikou_test())
+    print("Chikou is: ",chikou_test())
+    ichi_test.append(print("Chikou is: ",chikou_test()))
 
-    #print(" ")
-    #print("------------------------------------------------------------------------")
-    #print(" ")
+
+    print(" ")
+    print("------------------------------------------------------------------------")
+    print(" ")
 
 
     puntaje = (tk_cross() + kumo_cloud() + kumo_cloud_now() + chikou_test())
     rank = [symbol, puntaje]
 
-    #print(rank)
+    print(rank)
+    ichi_test.append(print(rank))
 
     def commend():
         if puntaje == 4:
@@ -74,9 +83,12 @@ def ichi_test_func(
         else:
             return "go SLEEP"
 
-    #print("Recomendacion: ",commend())
+    print("Recomendacion: ",commend())
+    ichi_test.append(print("Recomendacion: ",commend()))
 
-    #print(" ")
-    #print("------------------------------------------------------------------------")
-    #print(" ")
-    return rank
+    print(" ")
+    print("------------------------------------------------------------------------")
+    print(" ")
+    return ichi_test
+
+print(ichi_test_func(**ichi_var(var)))

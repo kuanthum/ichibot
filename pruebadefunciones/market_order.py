@@ -1,11 +1,11 @@
 
-import get_data as gd
+import api_pybit as gd
 import pandas as pd
-import market_order_dict as md
+from config import auto_order_d_func
 
 
 #get dictionary for inject to request
-market_order_dict = md.market_order_d
+market_order_dict = auto_order_d_func()
 
 market_order = (gd.session.place_active_order(**market_order_dict))
 

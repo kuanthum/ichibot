@@ -1,11 +1,11 @@
-import get_data as gd
+import api_pybit as gd
 from open_pos_q import *
 
 #Calculate st/tp percentage from manual place order int inputs
 
 open_pos_input()
 
-price_now = float(gd.get_sym_data['close'][-1:])
+price_now = float(gd.sym_data['close'][-1:])
 porcentaje_sl = price_now*float(stop_l)/100
 porcentaje_tp = price_now*float(take_p)/100
 
