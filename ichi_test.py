@@ -17,7 +17,7 @@ def ichi_test_func(
         else:
             return -1    
 
-    print("TK cross is: ",tk_cross())
+    #print("TK cross is: ",tk_cross())
 
     #KUMO AHEAD
     def kumo_cloud():
@@ -26,7 +26,7 @@ def ichi_test_func(
         else:
             return -1
 
-    print("Kumo ahead is: ",kumo_cloud())
+    #print("Kumo ahead is: ",kumo_cloud())
 
     #KUMO VS PRICE
     def kumo_cloud_now():
@@ -44,7 +44,7 @@ def ichi_test_func(
         else:
             return 0
 
-    print("Price vs Kumo is: ",kumo_cloud_now())
+    #print("Price vs Kumo is: ",kumo_cloud_now())
 
     #CHIKOU
     def chikou_test():
@@ -54,17 +54,17 @@ def ichi_test_func(
             return -1
 
 
-    print("Chikou is: ",chikou_test())
+    #print("Chikou is: ",chikou_test())
 
-    print(" ")
-    print("------------------------------------------------------------------------")
-    print(" ")
+    #print(" ")
+    #print("------------------------------------------------------------------------")
+    #print(" ")
 
 
     puntaje = (tk_cross() + kumo_cloud() + kumo_cloud_now() + chikou_test())
     rank = [symbol, puntaje]
 
-    print(rank)
+    #print(rank)
 
     def commend():
         if puntaje == 4:
@@ -74,9 +74,9 @@ def ichi_test_func(
         else:
             return "go SLEEP"
 
-    print("Recomendacion: ",commend())
+    #print("Recomendacion: ",commend())
 
-    print(" ")
-    print("------------------------------------------------------------------------")
-    print(" ")
+    #print(" ")
+    #print("------------------------------------------------------------------------")
+    #print(" ")
     return rank
