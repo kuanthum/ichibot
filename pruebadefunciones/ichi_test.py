@@ -62,7 +62,7 @@ def ichi_test_func(
 
 
     puntaje = (tk_cross() + kumo_cloud() + kumo_cloud_now() + chikou_test())
-    rank = [symbol, puntaje]
+    rank = [symbol, puntaje, lastprice]
 
     #print(rank)
 

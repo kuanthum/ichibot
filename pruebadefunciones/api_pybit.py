@@ -54,3 +54,11 @@ active_order = session.get_active_order(
     stop_loss= False,
     take_profit= False
 )
+
+#set laverage
+#true for isolated, false for cross
+set_laverage = session.cross_isolated_margin_switch(
+symbol="BTCUSD",
+is_isolated=True,
+buy_leverage=10,
+sell_leverage=20

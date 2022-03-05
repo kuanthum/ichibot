@@ -5,6 +5,8 @@ import config as cfg
 from ichi_data import ichi_var
 from ichi_test import ichi_test_func
 
+sorted_rank = []
+
 def sym_data_iter_func():
     sym_data_list = []
     for s in symbols():
@@ -31,5 +33,6 @@ def asset_rank():
     return sim_rank
 
 ranked_list = asset_rank()
+#Ordenar lista por puntaje
 sorted_rank = sorted(ranked_list, key = lambda symbol : symbol [1])
 print(sorted_rank)
