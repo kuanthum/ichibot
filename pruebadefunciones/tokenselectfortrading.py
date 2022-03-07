@@ -4,7 +4,7 @@ from api_pybit import df2
 #Get token and score to trade
 def token():
     sorted_ranking = [
-    ['EOSUSDT', -4, 2.061],
+    ['EOSUSDT', -4, 1.950],
     ['BCHUSDT', -4, 300.7],
     ['LTCUSDT', -4, 104.88],
     ['XTZUSDT', -4, 3.199],
@@ -40,6 +40,9 @@ def side_s():
         side = "Buy"
     return side
 #print(side_s())
+
+
+
 
 #Get tp/sp anchored
 stop_l = 5

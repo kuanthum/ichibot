@@ -51,3 +51,9 @@ def symbol_data_func(sym_value_list, sym_keys_list):
 
 #print(symbol_data_func(sym_value_list, sym_keys_list))
 
+#laverage
+# Laverage config
+#true for isolated, false for
+laverage_value_list = ["BTCUSDT",True,10,20]
+laverage_keys_list = ['symbol','is_isolated','buy_laverage','sell_laverage']
+set_laverage_dict = dict(zip(laverage_keys_list,laverage_value_list))

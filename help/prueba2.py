@@ -5,5 +5,6 @@ list = [['BTCUSDT', 2], ['ETHUSDT', -1], ['EOSUSDT', -4], ['XRPUSDT', 1], ['BCHU
 #preguntar Nico
 ordenados = sorted(list, key = lambda symbol : symbol [1])
 
-print(ordenados)
+#print(ordenados)
+
 
