@@ -35,7 +35,7 @@ lastprice = float(candle_c.iloc[-1])
 
 c = -9
 c2 = -26
-last_c = len(z)
+last_c = len(z)-1
 index = 0
 tk_cross = tk_n
 
@@ -45,7 +45,7 @@ while tk_cross == tk_n:
     print('---------- Iteracion: ',index)
     print(c, c2)
     print(last_c)
-    print('precio de cierre: ', z['close'].iloc[last_c-1])
+    print('precio de cierre: ', z['close'].iloc[last_c])
     print('----')
 
     #TENKAN-SEN (convertion line)
