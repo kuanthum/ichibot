@@ -1,7 +1,7 @@
 import pandas as pd
 from pybit import HTTP
 from fr_time import f_time_func
-import config as cfg
+#import config as cfg
 
 #conection
 session = HTTP("https://api-testnet.bybit.com",
@@ -22,18 +22,25 @@ def symbols():
     return symbols
 
 #get_sym_data
+ 
+days = 100
+s = 'BTCUSDT'
+interval = 'D'
 
-s = ()
-sym_value_list = ['BTCUSDT','D', f_time_func()]
-sym_keys_list = ['symbol','interval','from_time']
-qki = cfg.symbol_data_func(sym_value_list, sym_keys_list)
+def q_kline(s,interval,days):
+    sym_value_list = [s,interval, f_time_func(days)]
+    sym_keys_list = ['symbol','interval','from_time']
+    qk_list = [sym_keys_list, sym_value_list]
+    query_kline_d = dict(zip(*qk_list))
+    return query_kline_d
 
-def sym_data(qki):
-    symbol_data_q = session.query_kline(**qki)['result']
+    #default dict
+qkd = q_kline(s,interval,days)
+
+def sym_data(qkd):
+    symbol_data_q = session.query_kline(**qkd)['result']
     symbol_data = pd.DataFrame(symbol_data_q)
     return symbol_data
-
-#print(sym_data(qki))
 
 #get_wallet_balance
 balance = session.get_wallet_balance(coin="USDT")['result']
@@ -53,6 +60,12 @@ active_order = session.get_active_order(
     close_on_trigger= False,
     stop_loss= False,
     take_profit= False
+)
+
+#get price index
+def bifpa(s):
+    session.latest_information_for_symbol(
+    symbol=s
 )
 
 #set laverage

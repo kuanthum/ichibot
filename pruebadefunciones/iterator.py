@@ -1,23 +1,21 @@
-
-from fr_time import f_time_func
-from api_pybit import symbols, sym_data
-import config as cfg
+from api_pybit import symbols, sym_data, q_kline
 from ichi_data import ichi_var
 from ichi_test import ichi_test_func
 
 sorted_rank = []
 
+days = 0.65
+interval = '5'
+
 def sym_data_iter_func():
     sym_data_list = []
     for s in symbols():
-        svl = [s,'D', f_time_func()]
-        skl = ['symbol','interval','from_time']
-        symbol_data = cfg.symbol_data_func(svl, skl)
+        symbol_data = q_kline(s,interval,days)
         sym_data_list.append(symbol_data)
     return sym_data_list 
 
 sym_entry_list = sym_data_iter_func()
-sym_entry_list = sym_entry_list[6:-4]
+sym_entry_list = sym_entry_list[6:-6]
 
 def asset_rank():
     sim_rank = []

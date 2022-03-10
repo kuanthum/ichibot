@@ -17,7 +17,7 @@ def ichi_test_func(
         else:
             return -1    
 
-    print("TK cross is: ",tk_cross())
+    #print("TK cross is: ",tk_cross())
 
     #KUMO AHEAD
     def kumo_cloud():
@@ -72,7 +72,7 @@ def ichi_test_func(
         else:
             return "go SLEEP"
 
-    rank = [symbol, puntaje, lastprice, tk_cross()]
+    rank = [symbol, puntaje, tk_cross()]
     #print("Recomendacion: ",commend())
 
     #print(" ")

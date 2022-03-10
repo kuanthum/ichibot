@@ -1,7 +1,4 @@
-#from api_pybit import sym_data
-#pandas_data = sym_data()
 
-i = ()
 
 
 def ichi_var(var):

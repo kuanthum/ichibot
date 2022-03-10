@@ -35,7 +35,7 @@ lastprice = float(candle_c.iloc[-1])
 
 c = -9
 c2 = -26
-last_c = len(z)-1
+last_c = len(z)
 index = 0
 tk_cross = tk_n
 
@@ -45,7 +45,7 @@ while tk_cross == tk_n:
     print('---------- Iteracion: ',index)
     print(c, c2)
     print(last_c)
-    print('precio de cierre: ', z['close'].iloc[last_c])
+    print('precio de cierre: ', z['close'].iloc[last_c-1])
     print('----')
 
     #TENKAN-SEN (convertion line)
@@ -76,24 +76,3 @@ while tk_cross == tk_n:
     index += 1
     print('------------------------------------')
 print(index)
-
-
-# #TK CROSS VS KUMO STRENGHT
-# #Get price on tkcross
-# price_list = z['close']
-# price_on_cross =(price_list.iloc[-index])
-# print(price_on_cross)
-
-# #Get kumo on tkcross
-
-# #SENKOU SPAN A 
-# senkou_span_a = (tenkan_sen+kijun_sen)/2
-# print("Senkou span a: ",(senkou_span_a))
-# #ichi_values.append(senkou_span_a)
-
-# #SENKOU SPAN B 
-# ssbh = float(candle_h[-52:].max())
-# ssbl = float(candle_l[-52:].min())
-# senkou_span_b = (ssbh+ssbl)/2
-# print("Senkou span b: ",(senkou_span_b))
-# #ichi_values.append(senkou_span_b)

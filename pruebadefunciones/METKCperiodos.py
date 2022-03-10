@@ -2,44 +2,30 @@
 #More efective tk cross
 #example on AVAXUSDT
 
-from api_pybit import sym_data
-from fr_time import f_time_func
-import config as cfg
+from api_pybit import sym_data, q_kline
 from ichi_data import ichi_var
 from ichi_test import ichi_test_func
 
-sym_value_list = ['EOSUSDT','D', f_time_func()]
-sym_keys_list = ['symbol','interval','from_time']
-qki = cfg.symbol_data_func(sym_value_list, sym_keys_list)
+s = "EOSUSDT"
+interval = 1
+days = 0.0135
+q_kline(s,interval,days)
 
-
-z = sym_data(qki)
-print(z)
-#print(z['close'][-3:None])
+z = sym_data(q_kline)
 x = ichi_var(z)
-#print(type(x))
-#print(x)
 tk_n = ichi_test_func(**x)[3]
-#print(tk_cross)
 
-ichi_values = []
 symbol = z['symbol']
-#ichi_values.append(symbol[1])
 candle_c = z['close']
 candle_h = z['high']
 candle_l = z['low']
 lastprice = float(candle_c.iloc[-1])
-#ichi_values.append(lastprice)
-#print(symbol[1])
-#print("Lastprice: ",(lastprice))
 
 c = -9
 c2 = -26
 last_c = len(z)
 index = 0
 tk_cross = tk_n
-
-
 
 while tk_cross == tk_n:
     print('---------- Iteracion: ',index)
@@ -75,25 +61,33 @@ while tk_cross == tk_n:
 
     index += 1
     print('------------------------------------')
-print(index)
 
+tkc_distance = (index-1)
+print(index-1)
+price_on_tkc = (z['close'].iloc[-index])
+print(z['close'].iloc[-index])
+tkc_vs_price = ((tenkan_sen + kijun_sen)/2)
+print((tenkan_sen + kijun_sen)/2)
 
-# #TK CROSS VS KUMO STRENGHT
-# #Get price on tkcross
-# price_list = z['close']
-# price_on_cross =(price_list.iloc[-index])
-# print(price_on_cross)
+#TK CROSS STRENGH ANALIZER
+print(tk_n)
 
-# #Get kumo on tkcross
+tk_strength = ()
 
-# #SENKOU SPAN A 
-# senkou_span_a = (tenkan_sen+kijun_sen)/2
-# print("Senkou span a: ",(senkou_span_a))
-# #ichi_values.append(senkou_span_a)
+def TKCSA():
+    while True:
+        if tk_n == -1 and price_on_tkc < tkc_vs_price:
+            print('tkcross is: strong')
+            tk_strength = -1
+        elif tk_n == -1 and price_on_tkc > tkc_vs_price:
+            print('tkcross is weak')
+            tk_strength = 0
+        elif tk_n == 1 and price_on_tkc > tkc_vs_price:
+            print('tkcross is strong')
+            tk_strength = 1
+        else:
+            print('tkcross is weak')
+            tk_strength = 0
+        return tk_strength
 
-# #SENKOU SPAN B 
-# ssbh = float(candle_h[-52:].max())
-# ssbl = float(candle_l[-52:].min())
-# senkou_span_b = (ssbh+ssbl)/2
-# print("Senkou span b: ",(senkou_span_b))
-# #ichi_values.append(senkou_span_b)
+print(TKCSA())

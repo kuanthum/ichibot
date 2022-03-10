@@ -1,14 +1,4 @@
 
-from datetime import datetime
-import calendar
-
-#unixtime get for market data
-def f_time_func():
-    now = datetime.utcnow()
-    unixtime = calendar.timegm(now.timetuple())
-    f_time = unixtime - 60 * 60 * 24*100
-    return f_time
-
 #Market Order Config
 def auto_order_d_func():
     order_values = [
@@ -40,14 +30,4 @@ def auto_order_d_func():
 
 #Query klyne config
 
-s = ()
-sym_value_list = [s,'D', f_time_func()]
-sym_keys_list = ['symbol','interval','from_time']
-    
-def symbol_data_func(sym_value_list, sym_keys_list):
-  
-    query_kline_d = dict(zip(sym_keys_list, sym_value_list))
-    return query_kline_d
-
-#print(symbol_data_func(sym_value_list, sym_keys_list))
 
