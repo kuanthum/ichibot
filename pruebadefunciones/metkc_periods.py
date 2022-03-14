@@ -1,14 +1,15 @@
 #More efective tk cross
-#example on AVAXUSDT
 
 from api_pybit import sym_data, q_kline
-#from assetlisttest import sorted_list_test
-from filter_sorted import filtered_list
+#from filter_sorted import filtered_list
+from iterator2 import m1_list
+
 
 interval = 1
 days = 0.135
+new_list = []
 
-for i in filtered_list:
+for i in m1_list:
 
     s = i[0]
     print("------")
@@ -17,6 +18,7 @@ for i in filtered_list:
     q_kline_response = q_kline(s,interval,days)
     z = sym_data(q_kline_response)
     tk_n = i[2]
+    score = i[1]
 
     symbol = z['symbol']
     candle_c = z['close']
@@ -64,23 +66,32 @@ for i in filtered_list:
     #print(tk_n)
 
     tk_strength = ()
-
     def TKCSA():
         while True:
             if tk_n == -1 and price_on_tkc < tkc_vs_price:
                 print('tkcross is: strong')
                 tk_strength = -1
+                tk_str = 'strong'
+                new_list.append([s,lastprice,score,tkc_distance,tk_str])
             elif tk_n == -1 and price_on_tkc > tkc_vs_price:
                 print('tkcross is weak')
                 tk_strength = 0
+                tk_str = 'weak'
             elif tk_n == 1 and price_on_tkc > tkc_vs_price:
                 print('tkcross is strong')
                 tk_strength = 1
+                tk_str = ('strong')
+                new_list.append([s,lastprice,score,tkc_distance,tk_str])
             else:
                 print('tkcross is weak')
                 tk_strength = 0
+                tk_str = 'weak'
             return tk_strength
+
     TKCSA()
 
     print("=================================================================")
-   
+
+print(new_list)
+
+#["EOSUSDT", strong, 1], 

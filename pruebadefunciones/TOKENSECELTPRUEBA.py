@@ -1,30 +1,24 @@
 #from iterator import sorted_rank
 from api_pybit import df2
-
+from dataframetokens import strenght_sort
 #Get token and score to trade
+
+#['Symbol','Price','Ichi Score', 'Distance to tk cross', 'Tk cross strength']
 def token():
-    sorted_ranking = [
-    ['EOSUSDT', -4, 1.950],
-    ['BCHUSDT', -4, 300.7],
-    ['LTCUSDT', -4, 104.88],
-    ['XTZUSDT', -4, 3.199],
-    ['LINKUSDT', -4, 14.136],
-    ['ADAUSDT', -4, 0.8764],
-    ['DOTUSDT', -4, 17.17]
-    ]
-    token = sorted_ranking[0]
+
+    token = strenght_sort[0]
     return token
 
 #Get token symbol
 token_s = token()
-token_d = token_s[0]
+symbol = token_s[0]
 
 #Get order cost from balance
 balsheet = df2['USDT']
 bal = int(balsheet.iloc[0])
 
 #price
-price_now = token_s[2]
+price_now = token_s[1]
 
 #Get qty
 qty = (bal/price_now)
@@ -34,19 +28,19 @@ qty = (bal/price_now)
 #Get side
 token_s = token()
 def side_s():
-    if token_s[1] < 0:
+    if token_s[2] < 0:
         side = "Sell"
     else:
         side = "Buy"
     return side
-#print(side_s())
+print(side_s())
 
 
 
 
 #Get tp/sp anchored
-stop_l = 5
-take_p = 10
+stop_l = 1
+take_p = 2
 per_sl = price_now*float(stop_l)/100
 per_tp = price_now*float(take_p)/100
 
@@ -67,7 +61,8 @@ risk_mgmt_list = risk_mgmt()
 sl = round(risk_mgmt_list[0], 3)
 tp = round(risk_mgmt_list[1], 3)
 
-# print(price_now)
+print(symbol)
+print(price_now)
 # print(per_sl)
 # print(per_tp)
 # print(risk_mgmt())

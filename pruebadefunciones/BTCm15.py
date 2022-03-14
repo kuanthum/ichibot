@@ -15,4 +15,4 @@ def btc_trend():
     return btc_tendence
 
 
-#print(btc_trend())
+print(btc_trend())

@@ -1,21 +1,23 @@
-from api_pybit import symbols, sym_data, q_kline
+from api_pybit import sym_data, q_kline
 from ichi_data import ichi_var
-from ichi_test import ichi_test_func
+from ichi_test import ichi_test_func 
+from filter_sorted import filtered_list
+#from FORITER2 import filtered_list
+from BTCm15 import btc_trend
 
-print("Analisis Ichimoku en m5...")
+print("Analisis Ichimoku en m1")
 
 sorted_rank = []
 
-# interval = 1
-# days = 0.135
-days = 0.65
-interval = '5'
+interval = 1
+days = 0.135
 
 def sym_data_iter_func():
     sym_data_list = []
-    for s in symbols():
-        symbol_data = q_kline(s,interval,days)
+    for s in filtered_list:
+        symbol_data = q_kline(s[0],interval,days)
         sym_data_list.append(symbol_data)
+        print(symbol_data)
     return sym_data_list 
 
 sym_entry_list = sym_data_iter_func()
@@ -38,3 +40,20 @@ ranked_list = asset_rank()
 #Ordenar lista por puntaje
 sorted_rank = sorted(ranked_list, key = lambda symbol : symbol [1])
 print(sorted_rank)
+
+m1_list = []
+
+btc_trending = btc_trend()
+
+if btc_trending[1] > 0:
+    for i in sorted_rank:
+        if i[1] == 4:
+            m1_list.append(i)
+elif btc_trending[1] < 0:
+    for i in sorted_rank:
+        if i[1] == -4:
+            m1_list.append(i)
+
+print("---")
+print(m1_list)
+print("---")
