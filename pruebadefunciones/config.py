@@ -26,7 +26,7 @@ def auto_order_d_func():
     market_order_d = dict(zip(order_keys, order_values))
     return market_order_d
 
-#print(auto_order_d_func())
+print(auto_order_d_func())
 
 #Query klyne config
 
