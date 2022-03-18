@@ -62,9 +62,6 @@ active_order = session.get_active_order(
     take_profit= False
 )
 
-#get_position
-get_position =session.my_position()['result'][0]
-
 #get price index
 def bifpa(s):
     session.latest_information_for_symbol(

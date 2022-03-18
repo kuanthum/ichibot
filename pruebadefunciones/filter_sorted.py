@@ -2,7 +2,9 @@
 from iterator import sorted_rank
 from BTCm15 import btc_trend
 
-print("Filtrando datos mediante tendencia de BTC en m15")
+print("")
+print("Getting BTC trend and filtering parallel assets...")
+print("")
 
 # sorted_rank = [
 #     ['EOSUSDT', -4, 1.950],
@@ -16,9 +18,11 @@ print("Filtrando datos mediante tendencia de BTC en m15")
 
 btc_t = btc_trend()
 asset_list = sorted_rank
+print("")
 print('----')
 print("BTC trend: ", btc_t[1])
 print('----')
+print("")
 
 #eleminar todos los valores que no coincidan con la tendencia de btc
 def btc_parallel_trend():

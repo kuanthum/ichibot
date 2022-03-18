@@ -2,7 +2,9 @@ from api_pybit import symbols, sym_data, q_kline
 from ichi_data import ichi_var
 from ichi_test import ichi_test_func
 
-print("Analisis Ichimoku en m5...")
+print(" ")
+print("Runing Ichimoku on m5...")
+print(" ")
 
 sorted_rank = []
 
@@ -31,6 +33,8 @@ def asset_rank():
             ichi_var(s)
             dict_for_test = ichi_var(s)
             asset_rank = ichi_test_func(**dict_for_test)
+            #print("\r{}".format(s), end =" ")
+            print(f"\rScore: {asset_rank}   ", end = " ")
             sim_rank.append(asset_rank)
     return sim_rank
 

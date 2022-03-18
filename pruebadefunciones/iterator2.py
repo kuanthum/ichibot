@@ -2,10 +2,11 @@ from api_pybit import sym_data, q_kline
 from ichi_data import ichi_var
 from ichi_test import ichi_test_func 
 from filter_sorted import filtered_list
-#from FORITER2 import filtered_list
 from BTCm15 import btc_trend
 
-print("Analisis Ichimoku en m1")
+print(" ")
+print("Runing Ichimoku on m1...")
+print(" ")
 
 sorted_rank = []
 
@@ -17,7 +18,7 @@ def sym_data_iter_func():
     for s in filtered_list:
         symbol_data = q_kline(s[0],interval,days)
         sym_data_list.append(symbol_data)
-        print(symbol_data)
+        #print(symbol_data)
     return sym_data_list 
 
 sym_entry_list = sym_data_iter_func()
@@ -33,6 +34,7 @@ def asset_rank():
             ichi_var(s)
             dict_for_test = ichi_var(s)
             asset_rank = ichi_test_func(**dict_for_test)
+            print(f"\rScore: {asset_rank}   ", end = " ")
             sim_rank.append(asset_rank)
     return sim_rank
 
@@ -54,6 +56,6 @@ elif btc_trending[1] < 0:
         if i[1] == -4:
             m1_list.append(i)
 
-print("---")
+print("")
 print(m1_list)
 print("---")
