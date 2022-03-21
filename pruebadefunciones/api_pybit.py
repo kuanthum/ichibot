@@ -19,7 +19,11 @@ def symbols():
     df1 = pd.DataFrame(rsymbols)
     symbol = df1['name']
     symbols = list(symbol)
+    print(symbol)
     return symbols
+
+if __name__ == "__main__":
+    symbols()
 
 #get_sym_data
  
@@ -32,15 +36,20 @@ def q_kline(s,interval,days):
     sym_keys_list = ['symbol','interval','from_time']
     qk_list = [sym_keys_list, sym_value_list]
     query_kline_d = dict(zip(*qk_list))
+    print('q_kline')
     return query_kline_d
 
     #default dict
-qkd = q_kline(s,interval,days)
+if __name__ == "__main__":
+    qkd = q_kline(s,interval,days)
 
 def sym_data(qkd):
     symbol_data_q = session.query_kline(**qkd)['result']
     symbol_data = pd.DataFrame(symbol_data_q)
     return symbol_data
+
+if __name__ == "__main__":
+    sym_data(qkd)
 
 #get_wallet_balance
 balance = session.get_wallet_balance(coin="USDT")['result']
@@ -62,14 +71,17 @@ active_order = session.get_active_order(
     take_profit= False
 )
 
-#get price index
-def bifpa(s):
-    session.latest_information_for_symbol(
-    symbol=s
-)
+# #get price index
+# def bifpa(s):
+#     session.latest_information_for_symbol(
+#     symbol=s
+# )
 
 
 
 #set laverage
 
-
+if __name__ == "__main__":
+    symbols()
+    q_kline()
+    sym_data()

@@ -12,7 +12,7 @@ print("---")
 
 get_position = session.my_position("/private/linear/position/list")['result']
 #get_pos = pd.DataFrame(get_position)
-print(get_position)
+#print(get_position)
 
 new_list = list()
 

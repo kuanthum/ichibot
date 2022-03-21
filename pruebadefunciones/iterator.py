@@ -20,8 +20,10 @@ def sym_data_iter_func():
         sym_data_list.append(symbol_data)
     return sym_data_list 
 
-sym_entry_list = sym_data_iter_func()
-sym_entry_list = sym_entry_list[6:-6]
+if __name__ == "__main__":
+
+    sym_entry_list = sym_data_iter_func()
+    sym_entry_list = sym_entry_list[8:-6]
 
 def asset_rank():
     sim_rank = []
@@ -37,8 +39,10 @@ def asset_rank():
             print(f"\rScore: {asset_rank}   ", end = " ")
             sim_rank.append(asset_rank)
     return sim_rank
+    
+if __name__ == "__main__":
 
-ranked_list = asset_rank()
-#Ordenar lista por puntaje
-sorted_rank = sorted(ranked_list, key = lambda symbol : symbol [1])
-print(sorted_rank)
+    ranked_list = asset_rank()
+    #Ordenar lista por puntaje
+    sorted_rank = sorted(ranked_list, key = lambda symbol : symbol [1])
+    print(sorted_rank)

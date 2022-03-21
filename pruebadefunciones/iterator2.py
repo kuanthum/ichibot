@@ -1,13 +1,14 @@
 from api_pybit import sym_data, q_kline
 from ichi_data import ichi_var
 from ichi_test import ichi_test_func 
-from filter_sorted import filtered_list
+from filter_sorted import btc_parallel_trend
 from BTCm15 import btc_trend
 
 print(" ")
 print("Runing Ichimoku on m1...")
 print(" ")
 
+filtered_list = btc_parallel_trend()
 sorted_rank = []
 
 interval = 1
@@ -21,8 +22,10 @@ def sym_data_iter_func():
         #print(symbol_data)
     return sym_data_list 
 
-sym_entry_list = sym_data_iter_func()
-sym_entry_list = sym_entry_list[6:-6]
+if __name__ == "__main__":
+
+    sym_entry_list = sym_data_iter_func()
+    sym_entry_list = sym_entry_list[6:-6]
 
 def asset_rank():
     sim_rank = []
@@ -38,12 +41,12 @@ def asset_rank():
             sim_rank.append(asset_rank)
     return sim_rank
 
-ranked_list = asset_rank()
-#Ordenar lista por puntaje
-sorted_rank = sorted(ranked_list, key = lambda symbol : symbol [1])
-print(sorted_rank)
-
-m1_list = []
+if __name__ == "__main__":
+    ranked_list = asset_rank()
+    #Ordenar lista por puntaje
+    sorted_rank = sorted(ranked_list, key = lambda symbol : symbol [1])
+    print(sorted_rank)
+    m1_list = []
 
 btc_trending = btc_trend()
 

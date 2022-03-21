@@ -79,3 +79,6 @@ def ichi_test_func(
     #print("------------------------------------------------------------------------")
     #print(" ")
     return rank
+
+if __name__ == "__main__":
+    ichi_test_func()

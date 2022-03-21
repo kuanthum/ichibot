@@ -103,4 +103,6 @@ def ichi_var(var):
 
     return ichi_test_inputs
 
+if __name__ == "__main__":
+    ichi_var()
 

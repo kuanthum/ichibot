@@ -14,4 +14,6 @@ def market_order():
     return md_dataframe
     #print(md_dataframe)
 
+if __name__ == "__main__":
+    market_order()
 

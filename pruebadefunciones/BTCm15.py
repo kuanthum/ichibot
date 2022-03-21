@@ -14,5 +14,5 @@ def btc_trend():
     btc_tendence = ichi_test_func(**data)
     return btc_tendence
 
-
-print(btc_trend())
+if __name__ == "__main__":
+    print(btc_trend())

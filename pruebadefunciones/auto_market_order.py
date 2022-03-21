@@ -12,5 +12,6 @@ def market_order():
     #organaize response
     md_dataframe = pd.DataFrame(market_order)['result']
     return md_dataframe
-    
-print(market_order())
+
+if __name__ == "__main__":
+    print(market_order())

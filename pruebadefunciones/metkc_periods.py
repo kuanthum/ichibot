@@ -92,6 +92,7 @@ for i in m1_list:
 
     print("=================================================================")
 
-print(new_list)
+if __name__ == "__main__":
+    print(new_list)
 
 #["EOSUSDT", strong, 1], 

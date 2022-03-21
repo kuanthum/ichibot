@@ -1,18 +1,18 @@
 
 from token_select import token, side_s, bal, sl, tp
-from set_lev import *
+from set_margin_lev import *
 
 sym = token()
 
-get_position = session.my_position(sym)['result']
-print(set_margin(sym))
-print(set_lev(sym))
+# get_position = session.my_position(sym)['result']
+# print(set_margin(sym))
+# print(set_lev(sym))
 
 
 # Auto Market Order Config
 def auto_order_d_func():
     order_values = [
-        token(),
+        sym[0],
         side_s(),
         "Market",
         bal,
@@ -36,5 +36,6 @@ def auto_order_d_func():
     market_order_d = dict(zip(order_keys, order_values))
     return market_order_d
 
-print(auto_order_d_func())
+if __name__ == "__main__":
+    print(auto_order_d_func())
 

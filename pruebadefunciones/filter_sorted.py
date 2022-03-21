@@ -38,6 +38,6 @@ def btc_parallel_trend():
                     new_list.append(i)
         return new_list
 
-print(btc_parallel_trend())
-
-filtered_list = (btc_parallel_trend())
+if __name__ == "__main__":
+    print(btc_parallel_trend())
+    #filtered_list = (btc_parallel_trend())

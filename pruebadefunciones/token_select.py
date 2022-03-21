@@ -20,8 +20,9 @@ bal = int(balsheet.iloc[0])
 #price
 price_now = token_s[1]
 
+lev = 5
 #Get qty
-qty = (bal/price_now)
+qty = (bal*lev/price_now)
 #(bal/precio)*bal
 
 
@@ -58,8 +59,8 @@ def risk_mgmt():
         return risk_mgmt_l
 
 risk_mgmt_list = risk_mgmt()
-sl = round(risk_mgmt_list[0], 3)
-tp = round(risk_mgmt_list[1], 3)
+sl = round(risk_mgmt_list[0], 5)
+tp = round(risk_mgmt_list[1], 5)
 
 print(symbol)
 print(price_now)
