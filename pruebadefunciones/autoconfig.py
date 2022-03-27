@@ -1,6 +1,6 @@
 
 from token_select import token, side_s, bal, sl, tp
-from set_margin_lev import *
+#from set_margin_lev import *
 
 sym = token()
 
@@ -37,5 +37,5 @@ def auto_order_d_func():
     return market_order_d
 
 if __name__ == "__main__":
-    print(auto_order_d_func())
+    auto_order_d_func()
 

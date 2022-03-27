@@ -1,6 +1,7 @@
 #from iterator import sorted_rank
 from api_pybit import df2
-from dataframetokens import strenght_sort
+#from dataframetokens import strenght_sort
+from metkc_periods import strenght_sort
 #Get token and score to trade
 
 #['Symbol','Price','Ichi Score', 'Distance to tk cross', 'Tk cross strength']

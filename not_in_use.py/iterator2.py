@@ -22,10 +22,8 @@ def sym_data_iter_func():
         #print(symbol_data)
     return sym_data_list 
 
-if __name__ == "__main__":
-
-    sym_entry_list = sym_data_iter_func()
-    sym_entry_list = sym_entry_list[6:-6]
+sym_entry_list = sym_data_iter_func()
+sym_entry_list = sym_entry_list[6:-6]
 
 def asset_rank():
     sim_rank = []
@@ -41,13 +39,13 @@ def asset_rank():
             sim_rank.append(asset_rank)
     return sim_rank
 
-if __name__ == "__main__":
-    ranked_list = asset_rank()
-    #Ordenar lista por puntaje
-    sorted_rank = sorted(ranked_list, key = lambda symbol : symbol [1])
-    print(sorted_rank)
-    m1_list = []
 
+ranked_list = asset_rank()
+#Ordenar lista por puntaje
+sorted_rank = sorted(ranked_list, key = lambda symbol : symbol [1])
+print(sorted_rank)
+    
+m1_list = []
 btc_trending = btc_trend()
 
 if btc_trending[1] > 0:

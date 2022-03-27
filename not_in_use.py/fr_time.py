@@ -9,8 +9,10 @@ def f_time_func(days):
     f_time = unixtime - 60 * 60 * 24*days
     return f_time
 
-if __name__ == "__main__":
-    f_time_func()
+# if __name__ == "__main__":
+#     f_time_func()
+
+
 # 1min = 60s
 # 1min*200 = 12000s
 # 1day = 60s*60m*24 = 86400s

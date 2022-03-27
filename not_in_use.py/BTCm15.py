@@ -3,6 +3,7 @@ from ichi_test import ichi_test_func
 from api_pybit import sym_data, q_kline
 
 
+#GET_BTC_TREND
 def btc_trend():
     s = 'BTCUSDT'
     interval = 15
@@ -15,4 +16,4 @@ def btc_trend():
     return btc_tendence
 
 if __name__ == "__main__":
-    print(btc_trend())
+     print(btc_trend())
